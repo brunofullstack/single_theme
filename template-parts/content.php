@@ -8,14 +8,20 @@
  */
 
 ?>
-<!-- Latest Posts -->
-<section class="latest-posts"> 
-   <div class="container">
-     <div class="row">
-	 <article id="post-<?php the_ID(); ?>" <?php post_class( 'post-card card' ); ?>>
-           <img class="card-img-top" height="150px" src="https://images.unsplash.com/photo-1421809313281-48f03fa45e9f?auto=format&fit=crop&w=1410&q=80" alt="Card image cap">
-           <div class="">
-             <div class="post-text">
+
+
+<div class="container">
+      <div class="row">
+        <!-- Latest Posts -->
+        <main class="col post blog-post"> 
+          <div class="container">
+            <div class="post-single">
+              <!-- <div class="post-thumbnail"><img src="img/blog-post-3.jpeg" alt="..." class="img-fluid"></div> -->
+              <div class="post-details">
+                <!-- <div class="post-meta d-flex justify-content-between">
+                  <div class="category"><a href="#">Business</a><a href="#">Financial</a></div>
+                </div> -->
+                
 				<?php
 				if ( is_singular() ) :
 					the_title( '<h1 class="post-title">', '</h1>' );
@@ -23,10 +29,35 @@
 					the_title( '<h3 class="post-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark" class="text-dark">', '</a></h3>' );
 				endif;
 				?>
-               <!-- <p class="post-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam porta libero tincidunt mattis rhoncus. Interdum et malesuada fames ac ante ipsum primis in faucibus.</p> -->
-             </div>
-			 <div class="post-text">
-			 
+
+                <div class="post-footer d-flex align-items-center flex-column flex-sm-row"><a href="#" class="author d-flex align-items-center flex-wrap">
+                    <div class="avatar"><img src="img/avatar-1.jpg" alt="..." class="img-fluid"></div>
+                    <div class="title"><span><?php  echo get_the_author()  ?></span></div></a>
+                  <div class="d-flex align-items-center flex-wrap">
+				  	<?php 
+						$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
+						if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
+							$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
+						}
+						$time_string = sprintf( $time_string,
+							esc_attr( get_the_date( 'c' ) ),
+							esc_html( get_the_date() ),
+							esc_attr( get_the_modified_date( 'c' ) ),
+							esc_html( get_the_modified_date() )
+						); 
+
+						$posted_on = sprintf(
+							/* translators: %s: post date. */
+							esc_html_x( '%s', 'post date', 'wp-bootstrap-4' ),
+							'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
+						);
+					?>       
+                    <div class="date"><i class="icon-clock"></i> <?php echo $posted_on ?></div>
+
+                  </div>
+                </div>
+                <div class="post-body">
+					
 				<?php if( is_singular() || get_theme_mod( 'default_blog_display', 'excerpt' ) === 'full' ) : ?>
 					<div class="entry-content">
 						<?php
@@ -58,31 +89,7 @@
 					</div><!-- .entry-summary -->
 				<?php endif; ?>
 
-			 </div>
-           </div>
-           <div class="post-text">
-             <div>
-               <span class="pr-3">
-                 <img width="45px" src="https://www.alanidental.com/wp-content/uploads/2016/01/default.png"/>
-               </span>
-				<?php
-				if ( 'post' === get_post_type() ) : ?>
-				
-				<?php wp_bootstrap_4_posted_on(); ?>
-					<!-- por <a class="author-name" href="">Matheus Torrano</a>
-					<br />
-					10 de agosto de 2020 -->
-				<?php
-				endif; ?>
-             </div>
-           </div>
-	<?php if ( 'post' === get_post_type() ) : ?>
-		<footer class="entry-footer card-footer text-muted">
-			<?php wp_bootstrap_4_entry_footer(); ?>
-		</footer><!-- .entry-footer -->
-	<?php endif; ?>
-</article>
-<!-- #post-<?php the_ID(); ?> -->
-
-    </div>
-</section>
+                </div>
+		</main>
+	</div>
+</div>

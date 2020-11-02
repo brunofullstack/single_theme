@@ -51,25 +51,88 @@ get_header(); ?>
 						if( get_theme_mod( 'blog_display_posts_slider', '1' ) && is_home() && !is_paged() ) {
 							get_template_part( 'template-parts/posts-slider' );
 						}
+						?>
+						
 
-						/* Start the Loop */
-						while ( have_posts() ) : the_post();
+				
+						<div class="container-fluid mt-5">
+							<div class="row">
+								<?php if ( have_posts() ) : ?>
+								<?php while ( have_posts() ) : the_post(); ?>
+								<div class="col-lg-4">
+									<article  id="post-<?php the_ID(); ?>" <?php post_class( 'post-card card' ); ?> style="">
 
-							// Include the Post-Format-specific template for the content.
-							get_template_part( 'template-parts/content', get_post_format() );
+										<?php
+											// Must be inside a loop.
+											
+											if ( has_post_thumbnail() ) {
+												echo '<img class="card-img-top" width="100px" src="' . get_the_post_thumbnail_url(get_the_ID(), 'full') . '" alt="">';
+											}
+											else {
+												echo '<img class="card-img-top" width="100px" src="' . get_bloginfo( 'stylesheet_directory' ) 
+													. '/assets/images/default.png" />';
+											}
+										?>
+									
+									<div class="">
+										<div class="post-text">
+											<?php
+											if ( is_singular() ) :
+												the_title( '<h1 class="post-title">', '</h1>' );
+											else :
+												the_title( '<h5 class="post-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark" class="text-dark">', '</a></h5>' );
+											endif;
 
-						endwhile;
-
-						the_posts_navigation( array(
-							'next_text' => esc_html__( 'Newer Posts', 'wp-bootstrap-4' ),
-							'prev_text' => esc_html__( 'Older Posts', 'wp-bootstrap-4' ),
-						) );
-
-					else :
+											?>
+										<!-- <p class="post-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam porta libero tincidunt mattis rhoncus. Interdum et malesuada fames ac ante ipsum primis in faucibus.</p> -->
+										</div>
+									</div>
+									<div class="container ml-3">
+										<div class="row">
+											
+												<img class="mr-2" width="45px" src="https://www.alanidental.com/wp-content/uploads/2016/01/default.png"/>
+											
+												<?php
+												if ( 'post' === get_post_type() ) : ?>
+												
+												<?php wp_bootstrap_4_posted_on(); ?>
+													<!-- por <a class="author-name" href="">Matheus Torrano</a>
+													<br />
+													10 de agosto de 2020 -->
+												<?php
+												endif; ?>
+											
+										</div>
+									</div>
+										<?php if ( 'post' === get_post_type() ) : ?>
+											<footer class="entry-footer card-footer text-muted">
+												<?php wp_bootstrap_4_entry_footer(); ?>
+											</footer><!-- .entry-footer -->
+										<?php endif; ?>
+									</article>
+								</div>
+								<?php endwhile; ?>
+								<?php
+									the_posts_navigation( array(
+										'next_text' => esc_html__( 'Postagens Recentes', 'wp-bootstrap-4' ),
+										'prev_text' => esc_html__( 'Postagens Antigas', 'wp-bootstrap-4' ),
+									) );
+								?>
+								<?php wp_reset_postdata(); ?>
+								<?php else : ?>
+								<p>
+								<?php esc_html_e( 'Sorry, no posts matched your criteria.' ); ?>
+								</p>
+								<?php endif; ?>
+							</div>
+						</div> <!-- .container -->
+						
+					<?php else :
 
 						get_template_part( 'template-parts/content', 'none' );
 
 					endif; ?>
+
 				</div><!-- #primary -->
 			</div>
 			<!-- /.col-md-8 -->
