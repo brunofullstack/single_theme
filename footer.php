@@ -16,12 +16,11 @@
         <div class="row">
           <div class="col-md-4">
             <div class="logo">
-              <img src="img/logo.png" width="202px" alt="">
+              <img width="202px" src="<?php bloginfo('template_url'); ?>/assets/images/logo.png" >
             </div>
-            <div class="contact-details">
-              <p>53 Broadway, Broklyn, NY 11249</p>
-              <p>Phone: (020) 123 456 789</p>
-              <p>Email: <a href="mailto:info@company.com">Info@Company.com</a></p>
+            <div class="contact-details mt-5">
+              <p>Av. Dr. Cardoso de Melo, 1340 - conjunto 11</p>
+              <p>Vila Olímpia, São Paulo - SP, 04548-004</p>
             </div>
           </div>
           
@@ -69,6 +68,9 @@
         </div>
       </div>
       </div>
+
+      <hr class="mx-5">
+
       <div class="copyrights">
         <div class="container">
           <div class="row">

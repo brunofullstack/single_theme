@@ -46,8 +46,8 @@ $featured_query = new WP_Query( $args );
                 <div class="col-md-7 col-12 order-md-1 order-2">
                   <h4><?php the_title(); ?></h4>
                   <p><?php echo esc_html( wp_bootstrap_4_get_short_excerpt( 20 ) ); ?></p>
-                  <a href="<?php echo esc_url( get_permalink() ); ?>" class="btn btn-primary btn-sm"><?php esc_html_e( 'Continue Reading', 'wp-bootstrap-4' ); ?> <small class="oi oi-chevron-right ml-1"></small></a> </div>
-                <div class="col-md-5 col-12 order-md-2 order-1"><img src="<?php echo esc_url( $feat_image ); ?>" class="mx-auto" alt="slide"></div>
+                  <a href="<?php echo esc_url( get_permalink() ); ?>"><?php esc_html_e( 'Continue lendo', 'wp-bootstrap-4' ); ?> <small class="oi oi-chevron-right ml-1"></small></a> </div>
+                <div class="col-md-5 col-12 order-md-2 order-1 pt-5"><img src="<?php echo esc_url( $feat_image ); ?>" class="mx-auto" alt="slide"></div>
               </div>
             </div>
           </div>
@@ -65,8 +65,8 @@ $featured_query = new WP_Query( $args );
                 awesome product</h4>
               <p>Lorem ipsum dolor sit amet. Reprehenderit, qui blanditiis quidem rerum <br>
                 necessitatibus praesentium voluptatum deleniti atque corrupti.</p>
-              <a href="#">BUY NOW</a> </div>
-            <div class="col-md-5 col-12 order-md-2 order-1"><img src="<?php echo get_site_url(); ?>/assets/images/Frame.png" class="mx-auto" alt="slide"></div>
+              <a href="#">Continue lendo</a> </div>
+            <div class="col-md-5 col-12 order-md-2 order-1 pt-5"><img src="<?php bloginfo('template_url'); ?>/assets/images/Frame.png" class="mx-auto" alt="slide"></div>
           </div>
         </div>
       </div>
@@ -80,8 +80,8 @@ $featured_query = new WP_Query( $args );
                 awesome product</h4>
               <p>Lorem ipsum dolor sit amet. Reprehenderit, qui blanditiis quidem rerum <br>
                 necessitatibus praesentium voluptatum deleniti atque corrupti.</p>
-              <a href="#">BUY NOW</a> </div>
-            <div class="col-md-5 col-12 order-md-2 order-1"><img src="https://i.imgur.com/DGkR4OQ.png" class="mx-auto" alt="slide"></div>
+              <a href="#">Continue lendo</a> </div>
+            <div class="col-md-5 col-12 order-md-2 order-1 pt-5"><img src="<?php bloginfo('template_url'); ?>/assets/images/Frame.png" class="mx-auto" alt="slide"></div>
           </div>
         </div>
       </div>

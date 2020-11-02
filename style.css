@@ -1402,6 +1402,10 @@ footer.main-footer {
   color: #fff;
 }
 
+footer.main-footer .contact-details {
+  margin-top: 15px
+}
+
 footer.main-footer .contact-details p {
   font-weight: 300;
   color: #fff;
@@ -1459,8 +1463,7 @@ footer.main-footer .latest-posts .date {
 
 footer.main-footer .copyrights {
   background: #000e33;
-  margin-top: 100px;
-  padding: 20px 0;
+  padding: 2px 0;
   font-size: 0.9em;
 }
 

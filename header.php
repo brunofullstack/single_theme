@@ -18,6 +18,9 @@
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 
 	<?php wp_head(); ?>
+
+  <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/assets/vendor/font-awesome/css/font-awesome.min.css" type="text/css" media="screen" />
+  <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/assets/vendor/@fancyapps/fancybox/jquery.fancybox.min.css" type="text/css" media="screen" />
 </head>
 
 <body <?php body_class(); ?>>
@@ -43,8 +46,10 @@
           <!-- Navbar Brand -->
           <div class="navbar-header d-flex align-items-center justify-content-between">
             <!-- Navbar Brand -->
-            <a href="index.html" class="navbar-brand">
-              <img src="img/logo.png" alt="" width="202px">
+            <a href="<?php echo get_site_url(); ?>" class="navbar-brand">
+              <!-- <img src="img/logo.png" alt="" width="202px"> -->
+              <img width="202px" src="<?php bloginfo('template_url'); ?>/assets/images/logo.png" >
+
             </a>
             <!-- Toggle Button-->
             <button type="button" data-toggle="collapse" data-target="#navbarcollapse" aria-controls="navbarcollapse" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"><span></span><span></span><span></span></button>
