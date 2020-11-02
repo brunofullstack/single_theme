@@ -39,7 +39,7 @@ $featured_query = new WP_Query( $args );
                 $feat_img_alt = get_the_title();
             }
         ?>
-        <div class="carousel-item <?php if ( $post_counter === 0 ) : echo "active"; endif; ?>">
+        <div class="carousel-item mx-5 <?php if ( $post_counter === 0 ) : echo "active"; endif; ?>">
           <div class="mask flex-center">
             <div class="container">
               <div class="row align-items-center">
@@ -56,7 +56,7 @@ $featured_query = new WP_Query( $args );
     <?php endwhile; ?>
 
 
-    <div class="carousel-item">
+    <div class="carousel-item mx-5">
       <div class="mask flex-center">
         <div class="container">
           <div class="row align-items-center">
@@ -66,7 +66,7 @@ $featured_query = new WP_Query( $args );
               <p>Lorem ipsum dolor sit amet. Reprehenderit, qui blanditiis quidem rerum <br>
                 necessitatibus praesentium voluptatum deleniti atque corrupti.</p>
               <a href="#">BUY NOW</a> </div>
-            <div class="col-md-5 col-12 order-md-2 order-1"><img src="https://i.imgur.com/duWgXRs.png" class="mx-auto" alt="slide"></div>
+            <div class="col-md-5 col-12 order-md-2 order-1"><img src="<?php echo get_site_url(); ?>/assets/images/Frame.png" class="mx-auto" alt="slide"></div>
           </div>
         </div>
       </div>

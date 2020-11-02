@@ -33,13 +33,10 @@ get_header(); ?>
 	<?php endif; ?>
 <?php endif; ?>
 
-	<div class="container-fluid">
 		<div class="row">
 
 			<div class="col-md-12 wp-bp-content-width">
 				<div id="primary" class="content-area">
-					<main id="main" class="site-main">
-
 					<?php
 					if ( have_posts() ) :
 
@@ -73,8 +70,6 @@ get_header(); ?>
 						get_template_part( 'template-parts/content', 'none' );
 
 					endif; ?>
-
-					</main><!-- #main -->
 				</div><!-- #primary -->
 			</div>
 			<!-- /.col-md-8 -->
@@ -90,8 +85,6 @@ get_header(); ?>
 			<?php endif; ?>
 		</div>
 		<!-- /.row -->
-	</div>
-	<!-- /.container -->
 
 <?php
 get_footer();
