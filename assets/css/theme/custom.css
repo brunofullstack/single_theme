@@ -218,7 +218,11 @@
 .social_footer_ul li i {  width:20px; height:20px; text-align:center;}
 
 .main-footer h5 {
-    color: red
+  color: rgb(222, 12, 75)
+}
+
+.main-footer li {
+	padding-top: 40px;
 }
 
 
@@ -242,7 +246,7 @@
 #myCarousel p{
 	font-size:18px;
 	margin-bottom:15px;
-	color:#d5d5d5;
+	color:#fff;
 }
 /* #myCarousel .carousel-item a{background:#F47735; font-size:14px; color:#FFF; padding:13px 32px; display:inline-block; } */
 #myCarousel .carousel-item a {

@@ -1397,7 +1397,7 @@ section.gallery .overlay i {
 * ==========================================================
 */
 footer.main-footer {
-  background: #000e33;
+  background: rgb(0, 11, 60);
   padding: 100px 0 0;
   color: #fff;
 }

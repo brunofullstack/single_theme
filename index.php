@@ -53,14 +53,13 @@ get_header(); ?>
 						}
 						?>
 						
-
 				
-						<div class="container-fluid mt-5">
+						<div class="container-fluid my-3">
 							<div class="row">
 								<?php if ( have_posts() ) : ?>
 								<?php while ( have_posts() ) : the_post(); ?>
 								<div class="col-lg-4">
-									<article  id="post-<?php the_ID(); ?>" <?php post_class( 'post-card card' ); ?> style="">
+									<article  id="post-<?php the_ID(); ?>" <?php post_class( 'post-card card my-3' ); ?> style="">
 
 										<?php
 											// Must be inside a loop.
@@ -87,11 +86,11 @@ get_header(); ?>
 										<!-- <p class="post-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam porta libero tincidunt mattis rhoncus. Interdum et malesuada fames ac ante ipsum primis in faucibus.</p> -->
 										</div>
 									</div>
-									<div class="container ml-3">
+									<div class="container ml-3 mb-3">
 										<div class="row">
 											
-												<img class="mr-2" width="45px" src="https://www.alanidental.com/wp-content/uploads/2016/01/default.png"/>
-											
+												<?php echo get_avatar( get_the_author_email(), '45' ); ?>
+
 												<?php
 												if ( 'post' === get_post_type() ) : ?>
 												
@@ -104,11 +103,6 @@ get_header(); ?>
 											
 										</div>
 									</div>
-										<?php if ( 'post' === get_post_type() ) : ?>
-											<footer class="entry-footer card-footer text-muted">
-												<?php wp_bootstrap_4_entry_footer(); ?>
-											</footer><!-- .entry-footer -->
-										<?php endif; ?>
 									</article>
 								</div>
 								<?php endwhile; ?>

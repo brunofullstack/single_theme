@@ -31,7 +31,7 @@
 				?>
 
                 <div class="post-footer d-flex align-items-center flex-column flex-sm-row"><a href="#" class="author d-flex align-items-center flex-wrap">
-                    <div class="avatar"><img src="img/avatar-1.jpg" alt="..." class="img-fluid"></div>
+                    <div class="avatar"><?php echo get_avatar( get_the_author_email(), '45' ); ?></div>
                     <div class="title"><span><?php  echo get_the_author()  ?></span></div></a>
                   <div class="d-flex align-items-center flex-wrap">
 				  	<?php 
@@ -64,7 +64,7 @@
 							the_content( sprintf(
 								wp_kses(
 									/* translators: %s: Name of current post. Only visible to screen readers */
-									__( 'Continue lendo<span class="screen-reader-text"> "%s"</span>', 'wp-bootstrap-4' ),
+									__( 'Continue lendo <span class="screen-reader-text"> "%s"</span>', 'wp-bootstrap-4' ),
 									array(
 										'span' => array(
 											'class' => array(),
@@ -90,6 +90,6 @@
 				<?php endif; ?>
 
                 </div>
-		</main>
+		</main>	
 	</div>
 </div>
