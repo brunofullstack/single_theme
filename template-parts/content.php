@@ -24,38 +24,53 @@
                 
 				<?php
 				if ( is_singular() ) :
-					the_title( '<h1 class="post-title">', '</h1>' );
+					echo '<h1 class="post-title">Dicas da Provi: </h1>';
+					the_title( '<h2 class="post-title">', '</h2>' );
 				else :
 					the_title( '<h3 class="post-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark" class="text-dark">', '</a></h3>' );
 				endif;
 				?>
 
-                <div class="post-footer d-flex align-items-center flex-column flex-sm-row"><a href="#" class="author d-flex align-items-center flex-wrap">
-                    <div class="avatar"><?php echo get_avatar( get_the_author_email(), '45' ); ?></div>
-                    <div class="title"><span><?php  echo get_the_author()  ?></span></div></a>
-                  <div class="d-flex align-items-center flex-wrap">
-				  	<?php 
-						$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
-						if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
-							$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
-						}
-						$time_string = sprintf( $time_string,
-							esc_attr( get_the_date( 'c' ) ),
-							esc_html( get_the_date() ),
-							esc_attr( get_the_modified_date( 'c' ) ),
-							esc_html( get_the_modified_date() )
-						); 
+                <div class="post-footer d-flex flex-column flex-sm-row justify-content-between">
+					<div class="author d-flex align-items-center flex-wrap">
 
-						$posted_on = sprintf(
-							/* translators: %s: post date. */
-							esc_html_x( '%s', 'post date', 'wp-bootstrap-4' ),
-							'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
-						);
-					?>       
-                    <div class="date"><i class="icon-clock"></i> <?php echo $posted_on ?></div>
+						<div class="avatar"><?php echo get_avatar( get_the_author_email(), '45' ); ?></div>
+						<div class="title"><span><?php  echo get_the_author()  ?></span></div>
+					<div class="time">
+						<?php 
+							$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
+							if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
+								$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
+							}
+							$time_string = sprintf( $time_string,
+								esc_attr( get_the_date( 'c' ) ),
+								esc_html( get_the_date() ),
+								esc_attr( get_the_modified_date( 'c' ) ),
+								esc_html( get_the_modified_date() )
+							); 
 
-                  </div>
+							$posted_on = sprintf(
+								/* translators: %s: post date. */
+								esc_html_x( '%s', 'post date', 'wp-bootstrap-4' ),
+								'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
+							);
+						?>       
+						<div class="date"><i class="icon-clock"></i> <?php echo $posted_on ?></div>
+					</div>
+					</div>
+					<div class="d-flex justify-content-end">
+
+							<ul class="social-network social-circle">
+								<!-- <li><a href="#" class="icoRss" title="Rss"><i class="fa fa-rss"></i></a></li> -->
+								<li><a href="<?php $facebook ?>" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+								<li><a href="<?php $twitter ?>" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+								<li><a href="<?php $instagram ?>" class="icoGoogle" title="Instagram"><i class="fa fa-instagram"></i></a></li>
+								<li><a href="<?php $linkedin ?>" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+							</ul>
+							
+					</div>
                 </div>
+
                 <div class="post-body">
 					
 				<?php if( is_singular() || get_theme_mod( 'default_blog_display', 'excerpt' ) === 'full' ) : ?>
@@ -92,4 +107,87 @@
                 </div>
 		</main>	
 	</div>
+	<?php if( is_singular() || get_theme_mod( 'default_blog_display', 'excerpt' ) === 'full' ) : ?>
+		<div class="row">
+			<div class="col-12">
+				<div class="text-center m-t-30 mb-5" style="padding: 50px 0px; border-top: 1px solid #adad85; border-bottom: 1px solid #adad85">
+					<h4 class="mb-5" style="color: #000B3C">Veja mais sobre o autor</h4>
+					<img src="<?php echo get_avatar_url( get_the_author_email() ); ?>" class="rounded-circle mb-2" width="150">
+					<h4 class="text-info card-title m-t-10"><?php  echo get_the_author()  ?></h4>
+					<h6 class="card-subtitle mt-3"><?php echo get_the_author_meta('description') ?></h6>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12">
+				<div class="text-center m-t-30 mb-5">
+					<h4 class="mb-5" style="color: #000B3C">Artigos relacionados</h4>
+					<div class="row">
+
+					<?php
+						$args = array(
+							'posts_per_page' => 3,
+							'post_in' => get_the_tag_list()
+						);
+						$the_query = new WP_Query($args);
+ 
+							while ( $the_query->have_posts() ) : $the_query->the_post();
+							?> 
+							<div class="col-md-4">
+								
+								<article  id="post-<?php the_ID(); ?>" <?php post_class( 'post-card card my-3' ); ?> style="">
+
+									<?php
+										// Must be inside a loop.
+										
+										if ( has_post_thumbnail() ) {
+											echo '<img class="card-img-top" src="' . get_the_post_thumbnail_url(get_the_ID(), 'full') . '" alt="">';
+										}
+										else {
+											echo '<img class="card-img-top" src="' . get_bloginfo( 'stylesheet_directory' ) 
+												. '/assets/images/default.png" />';
+										}
+									?>
+
+									<div class="">
+									<div class="post-text">
+										<?php
+										if ( is_singular() ) :
+											the_title( '<h1 class="post-title">', '</h1>' );
+										else :
+											the_title( '<h5 class="post-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark" >', '</a></h5>' );
+										endif;
+
+										?>
+									<!-- <p class="post-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam porta libero tincidunt mattis rhoncus. Interdum et malesuada fames ac ante ipsum primis in faucibus.</p> -->
+									</div>
+									</div>
+									<div class="container ml-3 mb-3" style="position: absolute; bottom: 0;">
+									<div class="row">
+										
+											<?php echo get_avatar( get_the_author_email(), '55' ); ?>
+
+											<?php
+											if ( 'post' === get_post_type() ) : ?>
+											
+											<?php wp_bootstrap_4_posted_on(); ?>
+												<!-- por <a class="author-name" href="">Matheus Torrano</a>
+												<br />
+												10 de agosto de 2020 -->
+											<?php
+											endif; ?>
+										
+									</div>
+									</div>
+								</article>
+							</div>
+							<?php
+							endwhile; 
+							echo '<div class="clear"></div></section>'; 
+							wp_reset_postdata(); ?>
+					</div>
+				</div>
+			</div>
+		</div>
+	<?php endif; ?>
 </div>

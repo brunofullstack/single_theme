@@ -54,21 +54,21 @@ get_header(); ?>
 						?>
 						
 				
-						<div class="container-fluid my-3">
+						<div class="container my-3">
 							<div class="row">
 								<?php if ( have_posts() ) : ?>
 								<?php while ( have_posts() ) : the_post(); ?>
-								<div class="col-lg-4">
+								<div class="col-sm-12 col-md-6 col-lg-4">
 									<article  id="post-<?php the_ID(); ?>" <?php post_class( 'post-card card my-3' ); ?> style="">
 
 										<?php
 											// Must be inside a loop.
 											
 											if ( has_post_thumbnail() ) {
-												echo '<img class="card-img-top" width="100px" src="' . get_the_post_thumbnail_url(get_the_ID(), 'full') . '" alt="">';
+												echo '<img class="card-img-top" src="' . get_the_post_thumbnail_url(get_the_ID(), 'full') . '" alt="">';
 											}
 											else {
-												echo '<img class="card-img-top" width="100px" src="' . get_bloginfo( 'stylesheet_directory' ) 
+												echo '<img class="card-img-top" src="' . get_bloginfo( 'stylesheet_directory' ) 
 													. '/assets/images/default.png" />';
 											}
 										?>
@@ -79,17 +79,17 @@ get_header(); ?>
 											if ( is_singular() ) :
 												the_title( '<h1 class="post-title">', '</h1>' );
 											else :
-												the_title( '<h5 class="post-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark" class="text-dark">', '</a></h5>' );
+												the_title( '<h5 class="post-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark" >', '</a></h5>' );
 											endif;
 
 											?>
 										<!-- <p class="post-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam porta libero tincidunt mattis rhoncus. Interdum et malesuada fames ac ante ipsum primis in faucibus.</p> -->
 										</div>
 									</div>
-									<div class="container ml-3 mb-3">
+									<div class="container ml-3 mb-3" style="position: absolute; bottom: 0;">
 										<div class="row">
 											
-												<?php echo get_avatar( get_the_author_email(), '45' ); ?>
+												<?php echo get_avatar( get_the_author_email(), '55' ); ?>
 
 												<?php
 												if ( 'post' === get_post_type() ) : ?>

@@ -1052,7 +1052,6 @@ section.gallery .overlay i {
 * ==========================================================
 */
 footer.main-footer {
-  background: #000e33;
   padding: 100px 0 0;
   color: #fff;
 }
@@ -1113,7 +1112,6 @@ footer.main-footer .latest-posts .date {
 }
 
 footer.main-footer .copyrights {
-  background: #000e33;
   padding: 2px 0;
   font-size: 0.9em;
 }

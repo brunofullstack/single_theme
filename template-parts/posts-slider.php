@@ -17,53 +17,24 @@ $featured_query = new WP_Query( $args );
 
 
 	<!-- Header -->
-	<!-- <header class="text-center py-5 mb-4" style="height: 600px; background-color: #77c4f2;">
-		<div class="container">
-			<div class="d-flex justify-content-end"><img src="<?php bloginfo('template_url'); ?>/assets/images/Frame.png" alt=""></div>
-		</div>
-	</header> -->
-
-<div id="myCarousel" class="carousel slide carousel-fade" data-ride="carousel">
-  <ol class="carousel-indicators">
-      <?php $post_counter = 0; ?>
-      <?php while ( $featured_query->have_posts() ) : $featured_query->the_post(); ?>
-          <li data-target="#wp-bp-posts-slider" data-slide-to="<?php echo esc_attr( $post_counter ); ?>" class="<?php if ( $post_counter === 0 ) : echo "active"; endif; ?>"></li>
-          <?php $post_counter++; ?>
-      <?php endwhile; ?>
-  </ol>
-  <div class="carousel-inner">
-
-    <?php $post_counter = 0; ?>
-    <?php while ( $featured_query->have_posts() ) : $featured_query->the_post(); ?>
-        <?php
-            $feat_image = get_template_directory_uri() . '/assets/images/default.jpg';
-            $feat_img_alt = '';
-            if( has_post_thumbnail() ) {
-                $get_feat_image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
-                $feat_image = $get_feat_image[0];
-                $feat_img_alt = get_post_meta( get_post_thumbnail_id( $post->ID ), '_wp_attachment_image_alt', true );
+	<header id="homeBanner" class="py-2 mb-4" style="height: 436px; background-color: #77c4f2;">
+		
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-7 col-12 order-md-1 order-1 single-post-banner">
+          <?php
+              $args = array( 'numberposts' => '1' );
+              $recent_posts = wp_get_recent_posts( $args );
+              foreach( $recent_posts as $recent ){
+                echo the_title('<h4 class="banner-title">', '</h4>');
+                echo '<p> ' . esc_html( wp_bootstrap_4_get_short_excerpt( 20 ) ) . '</p>';
+                echo '<a href="' . esc_url( get_permalink() ) . '">Abrir artigo <small class="oi oi-chevron-right ml-1"></small></a>';
             }
-            if ( $feat_img_alt === '' ) {
-                $feat_img_alt = get_the_title();
-            }
-        ?>
-        <div class="carousel-item mx-5 <?php if ( $post_counter === 0 ) : echo "active"; endif; ?>">
-          <div class="mask flex-center">
-            <div class="container">
-              <div class="row align-items-center">
-                <div class="col-md-7 col-12 order-md-1 order-2">
-                  <h4><?php the_title(); ?></h4>
-                  <p><?php echo esc_html( wp_bootstrap_4_get_short_excerpt( 20 ) ); ?></p>
-                  <a href="<?php echo esc_url( get_permalink() ); ?>"><?php esc_html_e( 'Abrir artigo', 'wp-bootstrap-4' ); ?> <small class="oi oi-chevron-right ml-1"></small></a> </div>
-                <div class="col-md-5 col-12 order-md-2 order-1 pt-5"><img src="<?php bloginfo('template_url'); ?>/assets/images/Frame.png" class="mx-auto" alt="slide"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <?php $post_counter++; ?>
-    <?php endwhile; ?>
+          ?>
+        </div>  
+        <div class="col-md-5 col-12 order-md-2 order-2 pt-5 hidden-sm"><img src="<?php bloginfo('template_url'); ?>/assets/images/Frame.png" class="hidden-sm mx-auto img-responsive" alt="slide"></div>
+      </div>
+      
+	</header>
 
-  </div>
-  <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev"> <span class="carousel-control-prev-icon" aria-hidden="true"></span> <span class="sr-only">Previous</span> </a> <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next"> <span class="carousel-control-next-icon" aria-hidden="true"></span> <span class="sr-only">Next</span> </a> </div>
-<!--slide end-->
 <?php endif; ?>

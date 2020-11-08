@@ -1,5 +1,6 @@
+
 /*!
-Theme Name: Provi
+Theme Name: Provi Theme
 Theme URI: https://bootstrap-wp.com
 Author: Bruno Carvalho
 Author URI:
@@ -17,8 +18,24 @@ WP Bootstrap 4 is based on Underscores https://underscores.me/, (C) 2012-2017 Au
 Underscores is distributed under the terms of the GNU GPL v2 or later.
 */
 
-@import url("assets/css/theme/custom.css");
-@import url("assets/css/theme/style.default.css");
+@font-face {
+  font-family: 'CenturyGothicBold';
+  src: url('https://blog.provi.com.br/wp-content/themes/provi/assets/fonts/CenturyGothic/CenturyGothicBold.eot'); /* IE9 Compat Modes */
+  src: url('https://blog.provi.com.br/wp-content/themes/provi/assets/fonts/CenturyGothic/CenturyGothicBold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('https://blog.provi.com.br/wp-content/themes/provi/assets/fonts/CenturyGothic/CenturyGothicBold.woff2') format('woff2'), /* Super Modern Browsers */
+       url('https://blog.provi.com.br/wp-content/themes/provi/assets/fonts/CenturyGothic/CenturyGothicBold.woff') format('woff'), /* Pretty Modern Browsers */
+       url('https://blog.provi.com.br/wp-content/themes/provi/assets/fonts/CenturyGothic/CenturyGothicBold/fonts/gothici.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('https://blog.provi.com.br/wp-content/themes/provi/assets/fonts/CenturyGothic/CenturyGothicBold.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+@font-face {
+  font-family: 'CenturyGothic';
+  src: url('https://blog.provi.com.br/wp-content/themes/provi/assets/fonts/CenturyGothic/CenturyGothic.eot'); /* IE9 Compat Modes */
+  src: url('https://blog.provi.com.br/wp-content/themes/provi/assets/fonts/CenturyGothic/CenturyGothic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('https://blog.provi.com.br/wp-content/themes/provi/assets/fonts/CenturyGothic/CenturyGothic.woff2') format('woff2'), /* Super Modern Browsers */
+       url('https://blog.provi.com.br/wp-content/themes/provi/assets/fonts/CenturyGothic/CenturyGothic.woff') format('woff'), /* Pretty Modern Browsers */
+       url('https://blog.provi.com.br/wp-content/themes/provi/assets/fonts/CenturyGothic/CenturyGothic.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('https://blog.provi.com.br/wp-content/themes/provi/assets/fonts/CenturyGothic/CenturyGothic.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
 
 body { background-color: #f8f9fa; }
 
@@ -408,7 +425,7 @@ section {
 button,
 input {
   outline: none !important;
-  font-family: "Open Sans", sans-serif;
+  font-family: "CenturyGothic", sans-serif;
 }
 
 button {
@@ -909,25 +926,25 @@ div[class*="-btn"] {
   padding: 10px 0;
   font-size: 1.6em;
   font-weight: 300;
-  font-family: "Open Sans", sans-serif;
+  font-family: "CenturyGothic", sans-serif;
 }
 
 .navbar .search-area-inner input::-moz-placeholder {
-  font-family: "Open Sans", sans-serif;
+  font-family: "CenturyGothic", sans-serif;
   color: #555;
   font-weight: 300;
   font-size: 1.1em;
 }
 
 .navbar .search-area-inner input::-webkit-input-placeholder {
-  font-family: "Open Sans", sans-serif;
+  font-family: "CenturyGothic", sans-serif;
   color: #555;
   font-weight: 300;
   font-size: 1.1em;
 }
 
 .navbar .search-area-inner input:-ms-input-placeholder {
-  font-family: "Open Sans", sans-serif;
+  font-family: "CenturyGothic", sans-serif;
   color: #555;
   font-weight: 300;
   font-size: 1.1em;
@@ -1301,7 +1318,7 @@ section.newsletter input {
   padding: 0 15px;
   border: 1px solid #111;
   font-size: 1.1em;
-  font-family: "Open Sans", sans-serif;
+  font-family: "CenturyGothic", sans-serif;
   font-weight: 300;
 }
 
@@ -1315,7 +1332,7 @@ section.newsletter .submit {
   position: absolute;
   top: 0;
   right: 0;
-  font-family: "Open Sans", sans-serif;
+  font-family: "CenturyGothic", sans-serif;
 }
 
 /* Newsletter Section Media Query ------------------------------------- */
@@ -1398,7 +1415,7 @@ section.gallery .overlay i {
 */
 footer.main-footer {
   background: rgb(0, 11, 60);
-  padding: 100px 0 0;
+  padding: 60px 0 0;
   color: #fff;
 }
 
@@ -1433,7 +1450,15 @@ footer.main-footer ul {
 }
 
 footer.main-footer .list-unstyled a {
-  font-size: 0.95em;
+  font-size: 16px;
+  line-height: 24px;
+  padding-top: 40px;
+  font-weight: 600;
+}
+
+footer.main-footer .list-unstyled a:hover {
+  text-decoration: none;
+  color: #EAEAEA;
 }
 
 footer.main-footer .latest-posts .image {
@@ -1459,16 +1484,6 @@ footer.main-footer .latest-posts strong {
 footer.main-footer .latest-posts .date {
   font-size: 0.85em;
   color: #aaa;
-}
-
-footer.main-footer .copyrights {
-  background: #000e33;
-  padding: 2px 0;
-  font-size: 0.9em;
-}
-
-footer.main-footer .copyrights * {
-  margin-bottom: 0;
 }
 
 footer.main-footer .social-menu {
@@ -1530,24 +1545,24 @@ main.posts-listing .post-footer {
   border: none;
   border-bottom: 1px solid #ddd;
   font-size: 0.95em;
-  font-family: "Open Sans", sans-serif;
+  font-family: "CenturyGothic", sans-serif;
   font-weight: 400;
   background: none;
 }
 
 .widget.search input::-moz-placeholder {
   color: #aaa;
-  font-family: "Open Sans", sans-serif;
+  font-family: "CenturyGothic", sans-serif;
 }
 
 .widget.search input::-webkit-input-placeholder {
   color: #aaa;
-  font-family: "Open Sans", sans-serif;
+  font-family: "CenturyGothic", sans-serif;
 }
 
 .widget.search input:-ms-input-placeholder {
   color: #aaa;
-  font-family: "Open Sans", sans-serif;
+  font-family: "CenturyGothic", sans-serif;
 }
 
 .widget.search .submit {
@@ -1831,7 +1846,7 @@ main.posts-listing .post-footer {
   border-bottom: 1px solid #ddd;
   padding: 10px 0;
   border-radius: 0;
-  font-family: "Open Sans", sans-serif;
+  font-family: "CenturyGothic", sans-serif;
 }
 
 .blog-post .add-comment input::-moz-placeholder,
@@ -1840,7 +1855,7 @@ main.posts-listing .post-footer {
   font-size: 0.9em;
   color: #aaa;
   font-weight: 400;
-  font-family: "Open Sans", sans-serif;
+  font-family: "CenturyGothic", sans-serif;
 }
 
 .blog-post .add-comment input::-webkit-input-placeholder,
@@ -1849,7 +1864,7 @@ main.posts-listing .post-footer {
   font-size: 0.9em;
   color: #aaa;
   font-weight: 400;
-  font-family: "Open Sans", sans-serif;
+  font-family: "CenturyGothic", sans-serif;
 }
 
 .blog-post .add-comment input:-ms-input-placeholder,
@@ -1858,7 +1873,7 @@ main.posts-listing .post-footer {
   font-size: 0.9em;
   color: #aaa;
   font-weight: 400;
-  font-family: "Open Sans", sans-serif;
+  font-family: "CenturyGothic", sans-serif;
 }
 
 .blog-post .add-comment input:focus,
@@ -2563,7 +2578,7 @@ STYLE SWITCHER FOR DEMO
  * 3. TYPE
  */
 body {
-  font-family: "Open Sans", sans-serif;
+  font-family: "CenturyGothic", sans-serif;
   font-size: 1rem;
   font-weight: normal;
   line-height: 1.5;
@@ -2938,4 +2953,3 @@ a.text-dark:focus, a.text-dark:hover {
 /*--------------------------------------------------------------
 # Blog Provi
 --------------------------------------------------------------*/
-  

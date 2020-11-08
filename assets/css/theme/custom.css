@@ -1,14 +1,44 @@
 /* your styles go here */
 
+@font-face {
+  font-family: 'CenturyGothicBold';
+  src: url('https://blog.provi.com.br/wp-content/themes/provi/assets/fonts/CenturyGothic/CenturyGothicBold.eot'); /* IE9 Compat Modes */
+  src: url('https://blog.provi.com.br/wp-content/themes/provi/assets/fonts/CenturyGothic/CenturyGothicBold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('https://blog.provi.com.br/wp-content/themes/provi/assets/fonts/CenturyGothic/CenturyGothicBold.woff2') format('woff2'), /* Super Modern Browsers */
+       url('https://blog.provi.com.br/wp-content/themes/provi/assets/fonts/CenturyGothic/CenturyGothicBold.woff') format('woff'), /* Pretty Modern Browsers */
+       url('https://blog.provi.com.br/wp-content/themes/provi/assets/fonts/CenturyGothic/CenturyGothicBold.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('https://blog.provi.com.br/wp-content/themes/provi/assets/fonts/CenturyGothic/CenturyGothicBold.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family: "CenturyGothicBold", sans-serif;
+}
 /* Card */
 
 .post-card {
     background-color: #fdfdfd;
-    /* width: 21em;
-    height: 28em; */
+    /* width: 25em; */
+    /* height: 15em; */
     box-shadow: 0 1px 32px rgba(0, 0, 0, 0.12), 0 1px 16px rgba(0, 0, 0, 0.24);
     margin: 2.5em auto 3.75em;
-    border-radius: 16px
+    border-radius: 16px;
+    min-height: 350px;
+    max-height: 350px;
+}
+.post-card .card-img-top {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+  opacity: 0.8;
+}
+.post-card .avatar {
+  opacity: 0.8;
+  margin-top: 8px;
+}
+.post-card:hover .card-img-top {
+  opacity: 1;
+}
+.post-card:hover .avatar {
+  opacity: 1;
 }
 .post-card .img-container {
     /* background: url(https://images.unsplash.com/photo-1421809313281-48f03fa45e9f?auto=format&fit=crop&w=1410&q=80) no-repeat 75% center; */
@@ -38,6 +68,14 @@
     top: 0.475em;
     left: 0;
 }
+
+/* card hover effects */
+.post-card:hover  {
+  /* box-shadow: 0 15px 10px -10px rgba(31, 31, 31, 0.5); */
+  transition: all 0.3s ease;
+  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+}
+
 .post-card .share-btn:hover {
     box-shadow: 0 1px 12px rgba(0, 0, 0, 0.22), 0 1px 6px rgba(0, 0, 0, 0.3);
     transform: scale(1.05);
@@ -80,8 +118,16 @@
 .post-card .post-text {
     padding: 11px 18px 15px;
 }
+.post-title a{
+  color: #000B3C;
+  font-family: "CenturyGothicBold";
+}
+.entry-date {
+  color: #000B3C;
+  font-size: .9em;
+}
 .post-card .post-text .post-title {
-    font-size: 1.6em;
+    font-size: 1.2em;
     font-weight: 700;
     letter-spacing: 0.5px;
     margin: 6px 0 9px;
@@ -214,43 +260,31 @@
 
 .social_footer_ul { display:table; margin:15px auto 0 auto; list-style-type:none;  }
 .social_footer_ul li { padding-left:20px; padding-top:10px; float:left; }
-.social_footer_ul li a { color:#CCC; border:1px solid #CCC; padding:8px;border-radius:50%;}
-.social_footer_ul li i {  width:20px; height:20px; text-align:center;}
+.social_footer_ul li a { background-color: #fff; color:#000b3c; border:1px solid #CCC; padding:8px; border-radius:50%; font-size: 20px}
+.social_footer_ul li i {  width:30px; height:30px; text-align:center;}
 
 .main-footer h5 {
+  font-family: 'CenturyGothicBold';
   color: rgb(222, 12, 75)
 }
 
-.main-footer li {
-	padding-top: 40px;
-}
-
-
-/* Carousel */
-#myCarousel .carousel-item .mask {
-    position: absolute;
-    top: 0;
-	left:0;
-	height:100%;
-    width: 100%;
-    background-attachment: fixed;
-}
-#myCarousel h4{
-	font-size:50px;
+/* Banner */
+.banner-title {
+  font-family: "CenturyGothicBold", sans-serif;
+	font-size:2.1em;
 	margin-bottom:15px;
 	color:#FFF;
 	line-height:100%;
 	letter-spacing:0.5px;
 	font-weight:600;
-}
-#myCarousel p{
+} 
+#homeBanner p {
 	font-size:18px;
 	margin-bottom:15px;
 	color:#fff;
 }
-/* #myCarousel .carousel-item a{background:#F47735; font-size:14px; color:#FFF; padding:13px 32px; display:inline-block; } */
-#myCarousel .carousel-item a {
-  font-family: "Raleway", sans-serif;
+#homeBanner a {
+  font-family: "CenturyGothicBold", sans-serif;
   font-weight: 500;
   font-size: 15px;
   letter-spacing: 1px;
@@ -263,7 +297,7 @@
   color: #fff;
 }
 .btn-rounded {
-  font-family: "Raleway", sans-serif;
+  font-family: "CenturyGothicBold", sans-serif;
   font-weight: 500;
   font-size: 15px;
   letter-spacing: 1px;
@@ -275,69 +309,6 @@
   border: 2px solid #5db5fe;
   color: #5db5fe;
 }
-#myCarousel .carousel-item a:hover{background:#394fa2; text-decoration:none;  }
-
-#myCarousel .carousel-item h4{-webkit-animation-name:fadeInLeft; animation-name:fadeInLeft;} 
-#myCarousel .carousel-item p{-webkit-animation-name:slideInRight; animation-name:slideInRight;} 
-#myCarousel .carousel-item a{-webkit-animation-name:fadeInUp; animation-name:fadeInUp;}
-#myCarousel .carousel-item .mask img{-webkit-animation-name:slideInRight; animation-name:slideInRight; display:block; height:auto; max-width:100%;}
-#myCarousel h4, #myCarousel p, #myCarousel a, #myCarousel .carousel-item .mask img{-webkit-animation-duration: 1s;
-    animation-duration: 1.2s;
-    -webkit-animation-fill-mode: both;
-    animation-fill-mode: both;
-}
-#myCarousel .container {max-width: 1430px;  }
-#myCarousel .carousel-item{height:100%; min-height:550px; }
-#myCarousel{position:relative; z-index:1; background-color: #5db5fe; background-size:cover; }
-
-.carousel-control-next, .carousel-control-prev{height:40px; width:40px; padding:12px; top:50%; bottom:auto; transform:translateY(-50%); }
-
-
-.carousel-item {
-    position: relative;
-    display: none;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    width: 100%;
-    transition: -webkit-transform .6s ease;
-    transition: transform .6s ease;
-    transition: transform .6s ease,-webkit-transform .6s ease;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    -webkit-perspective: 1000px;
-    perspective: 1000px;
-}
-.carousel-fade .carousel-item {
-	opacity: 0;
-	-webkit-transition-duration: .6s;
-	transition-duration: .6s;
-	-webkit-transition-property: opacity;
-	transition-property: opacity
-}
-.carousel-fade .carousel-item-next.carousel-item-left, .carousel-fade .carousel-item-prev.carousel-item-right, .carousel-fade .carousel-item.active {
-	opacity: 1
-}
-.carousel-fade .carousel-item-left.active, .carousel-fade .carousel-item-right.active {
-	opacity: 0
-}
-.carousel-fade .carousel-item-left.active, .carousel-fade .carousel-item-next, .carousel-fade .carousel-item-prev, .carousel-fade .carousel-item-prev.active, .carousel-fade .carousel-item.active {
-	-webkit-transform: translateX(0);
-	-ms-transform: translateX(0);
-	transform: translateX(0)
-}
-@supports (transform-style:preserve-3d) {
-	.carousel-fade .carousel-item-left.active, .carousel-fade .carousel-item-next, .carousel-fade .carousel-item-prev, .carousel-fade .carousel-item-prev.active, .carousel-fade .carousel-item.active {
-	-webkit-transform:translate3d(0, 0, 0);
-	transform:translate3d(0, 0, 0)
-	}
-}
-.carousel-fade .carousel-item-left.active, .carousel-fade .carousel-item-next, .carousel-fade .carousel-item-prev, .carousel-fade .carousel-item-prev.active, .carousel-fade .carousel-item.active {
-    -webkit-transform: translate3d(0,0,0);
-    transform: translate3d(0,0,0);
-}
-
-
  
 @-webkit-keyframes fadeInLeft {
   from {
@@ -434,4 +405,137 @@
 .slideInRight {
   -webkit-animation-name: slideInRight;
   animation-name: slideInRight;
+}
+
+/* footer list */
+
+footer.main-footer .list-unstyled a {
+  font-size: 16px;
+  line-height: 24px;
+  padding-top: 40px;
+  font-weight: 600;
+  font-family: "CenturyGothicBold", sans-serif;
+}
+
+footer.main-footer .list-unstyled a:hover {
+  text-decoration: none;
+  color: #A1A1A1;
+}
+
+footer.main-footer .copyrights {
+  background: #000b3c;
+  padding: 2px 0;
+  font-size: 12px;
+}
+footer.main-footer .copyrights a {
+  text-decoration: underline;
+  /* font-size: 12px; */
+}
+
+footer.main-footer .copyrights * {
+  margin-bottom: 0;
+}
+
+.posted-on {
+  font-weight: bolder;
+}
+.posted-on a {
+  font-family: "CenturyGothicBold", sans-serif;
+  color: #000B3C;
+  font-size: large;
+}
+
+/* Hidden Screen Classes */
+
+@media (max-width: 767px) {                  
+  .hidden-sm {
+     display: none !important;
+  }
+  .single-post-banner {
+    margin-top: 50px;
+  }
+}
+
+
+/*=========================
+  Icons
+ ================= */
+
+/* footer social icons */
+ul.social-network {
+	list-style: none;
+	display: inline;
+	margin-left:0 !important;
+	padding: 0;
+}
+ul.social-network li {
+	display: inline;
+	margin: 0 5px;
+}
+
+
+/* footer social icons */
+.social-network a.icoRss:hover {
+	background-color: #F56505;
+}
+.social-network a.icoFacebook:hover {
+	background-color:#3B5998;
+}
+.social-network a.icoTwitter:hover {
+	background-color:#33ccff;
+}
+.social-network a.icoGoogle:hover {
+	background-color:#BD3518;
+}
+.social-network a.icoVimeo:hover {
+	background-color:#0590B8;
+}
+.social-network a.icoLinkedin:hover {
+	background-color:#007bb7;
+}
+.social-network a.icoRss:hover i, .social-network a.icoFacebook:hover i, .social-network a.icoTwitter:hover i,
+.social-network a.icoGoogle:hover i, .social-network a.icoVimeo:hover i, .social-network a.icoLinkedin:hover i {
+	color:#fff;
+}
+a.socialIcon:hover, .socialHoverClass {
+	color:#44BCDD;
+}
+
+.social-circle li a {
+	display:inline-block;
+	position:relative;
+	margin:0 auto 0 auto;
+	-moz-border-radius:50%;
+	-webkit-border-radius:50%;
+	border-radius:50%;
+	text-align:center;
+	width: 35px;
+	height: 35px;
+  font-size:20px;
+  background-color: #000B3C;
+}
+.social-circle li i {
+	margin:0;
+	line-height:35px;
+	text-align: center;
+}
+
+.social-circle li a:hover i, .triggeredHover {
+	-moz-transform: rotate(360deg);
+	-webkit-transform: rotate(360deg);
+	-ms--transform: rotate(360deg);
+	transform: rotate(360deg);
+	-webkit-transition: all 0.2s;
+	-moz-transition: all 0.2s;
+	-o-transition: all 0.2s;
+	-ms-transition: all 0.2s;
+	transition: all 0.2s;
+}
+.social-circle i {
+	color: #fff;
+	-webkit-transition: all 0.8s;
+	-moz-transition: all 0.8s;
+	-o-transition: all 0.8s;
+	-ms-transition: all 0.8s;
+	transition: all 0.8s;
 }

@@ -21,6 +21,7 @@
 
   <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/assets/vendor/font-awesome/css/font-awesome.min.css" type="text/css" media="screen" />
   <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/assets/vendor/@fancyapps/fancybox/jquery.fancybox.min.css" type="text/css" media="screen" />
+
 </head>
 
 <body <?php body_class(); ?>>
