@@ -14,7 +14,7 @@ get_header(); ?>
 ?>
 
 	<!-- Header -->
-	<header class="text-center py-5 mb-4" style="height: 300px; background-color: #77c4f2;">
+	<header class="hidden-sm text-center py-5 mb-4" style="height: 300px; background-color: #77c4f2;">
 		<div class="container">
 			<div class="d-flex justify-content-end"><img src="<?php bloginfo('template_url'); ?>/assets/images/Frame.png" width="295px" alt=""></div>
 		</div>
@@ -28,11 +28,6 @@ get_header(); ?>
 					while ( have_posts() ) : the_post();
 
 						get_template_part( 'template-parts/content', get_post_type() );
-
-						the_post_navigation(array(
-				            'prev_text' => esc_html__( '&laquo; Anterior', 'wp-bootstrap-4' ),
-				            'next_text' => esc_html__( 'Próximo &raquo;', 'wp-bootstrap-4' ),
-				        ) );
 
 						// If comments are open or we have at least one comment, load up the comment template.
 						// if ( comments_open() || get_comments_number() ) :

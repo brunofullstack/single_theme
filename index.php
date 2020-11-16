@@ -13,23 +13,28 @@
  */
 
 get_header(); ?>
-
+<div class="container-fluid">
 <?php
 	$default_sidebar_position = get_theme_mod( 'default_sidebar_position', 'right' );
 ?>
 
+
 <?php if ( get_theme_mod( 'blog_display_cover_section', 1 ) ) : ?>
 	<?php if( get_theme_mod( 'blog_cover_title' ) || get_theme_mod( 'blog_cover_lead' ) || get_theme_mod( 'blog_cover_btn_text' ) ) : ?>
-		<section class="jumbotron bg-white text-center wp-bs-4-jumbotron border-bottom">
-			<div class="container">
 
-				<h1 class="jumbotron-heading"><?php echo wp_kses_post( get_theme_mod( 'blog_cover_title' ) ); ?></h1>
-				<p class="lead text-muted"><?php echo wp_kses_post( get_theme_mod( 'blog_cover_lead' ) ); ?></p>
-				<?php if( get_theme_mod( 'blog_cover_btn_text' ) ) : ?><a href="<?php echo esc_url( get_theme_mod( 'blog_cover_btn_link' ) ); ?>" class="btn btn-primary"><?php echo esc_html( get_theme_mod( 'blog_cover_btn_text' ) ); ?></a><?php endif; ?>
+
+		<div class="row">
+			<div class="col-12 p-0">
+				<section class="jumbotron bg-white text-center m-0 wp-bs-4-jumbotron border-bottom">
+					<h1 class="jumbotron-heading"><?php echo wp_kses_post( get_theme_mod( 'blog_cover_title' ) ); ?></h1>
+					<p class="lead text-muted"><?php echo wp_kses_post( get_theme_mod( 'blog_cover_lead' ) ); ?></p>
+					<?php if( get_theme_mod( 'blog_cover_btn_text' ) ) : ?><a href="<?php echo esc_url( get_theme_mod( 'blog_cover_btn_link' ) ); ?>" class="btn btn-primary"><?php echo esc_html( get_theme_mod( 'blog_cover_btn_text' ) ); ?></a><?php endif; ?>
+					<!-- /.container -->
+				</section>
+				<!-- /.jumbotron text-center -->
 			</div>
-			<!-- /.container -->
-		</section>
-		<!-- /.jumbotron text-center -->
+		</div>
+
 	<?php endif; ?>
 <?php endif; ?>
 
@@ -55,12 +60,16 @@ get_header(); ?>
 						
 				
 						<div class="container my-3">
-							<div class="row">
+							<div id="post-article" class="row">
 								<?php if ( have_posts() ) : ?>
 								<?php while ( have_posts() ) : the_post(); ?>
-								<div class="col-sm-12 col-md-6 col-lg-4">
-									<article  id="post-<?php the_ID(); ?>" <?php post_class( 'post-card card my-3' ); ?> style="">
-
+								<div class="single-post col-sm-12 col-md-6 col-lg-4">	
+									<article 
+										id="post-<?php the_ID(); ?>"
+										<?php post_class( 'post-card card my-3' ); ?>
+										onclick="location.href='<?php echo get_permalink() ?>';"
+												style="cursor: pointer"
+									>
 										<?php
 											// Must be inside a loop.
 											
@@ -79,7 +88,7 @@ get_header(); ?>
 											if ( is_singular() ) :
 												the_title( '<h1 class="post-title">', '</h1>' );
 											else :
-												the_title( '<h5 class="post-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark" >', '</a></h5>' );
+												echo '<h5 class="post-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark" >Dica da Provi: ' . substr(get_the_title(), 0, 70) . '</a></h5>';
 											endif;
 
 											?>
@@ -88,7 +97,6 @@ get_header(); ?>
 									</div>
 									<div class="container ml-3 mb-3" style="position: absolute; bottom: 0;">
 										<div class="row">
-											
 												<?php echo get_avatar( get_the_author_email(), '55' ); ?>
 
 												<?php
@@ -106,19 +114,22 @@ get_header(); ?>
 									</article>
 								</div>
 								<?php endwhile; ?>
+							</div>
+								<div class="d-flex justify-content-center">
+												
 								<?php
 									the_posts_navigation( array(
-										'next_text' => esc_html__( 'Postagens Recentes', 'wp-bootstrap-4' ),
-										'prev_text' => esc_html__( 'Postagens Antigas', 'wp-bootstrap-4' ),
+										'next_text' => esc_html__( 'Avançar >>', 'wp-bootstrap-4' ),
+										'prev_text' => esc_html__( '<< Voltar', 'wp-bootstrap-4' ),
 									) );
 								?>
+								</div>
 								<?php wp_reset_postdata(); ?>
 								<?php else : ?>
 								<p>
 								<?php esc_html_e( 'Sorry, no posts matched your criteria.' ); ?>
 								</p>
 								<?php endif; ?>
-							</div>
 						</div> <!-- .container -->
 						
 					<?php else :
@@ -142,6 +153,10 @@ get_header(); ?>
 			<?php endif; ?>
 		</div>
 		<!-- /.row -->
+	</div>
+<!-- /.container -->
+
 
 <?php
 get_footer();
+?>

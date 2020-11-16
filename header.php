@@ -21,10 +21,22 @@
 
   <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/assets/vendor/font-awesome/css/font-awesome.min.css" type="text/css" media="screen" />
   <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/assets/vendor/@fancyapps/fancybox/jquery.fancybox.min.css" type="text/css" media="screen" />
-
+  <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/assets/css/theme/custom.css" type="text/css" media="screen" />
 </head>
-
-<body <?php body_class(); ?>>
+<script type="text/javascript">
+// window.addEventListener('load', function() {
+//   var element = document.getElementById("ctis-loading");
+//   element.classList.add("col-md-12");
+// });
+</script>
+<style>
+#ctis-loading {
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+</style>
+<body <?php body_class(); ?> style="margin: 0 auto; !important">
 <header class="header">
       <!-- Main Navbar-->
       <nav class="navbar navbar-expand-lg">

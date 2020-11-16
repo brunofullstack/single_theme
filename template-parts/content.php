@@ -35,7 +35,7 @@
 					<div class="author d-flex align-items-center flex-wrap">
 
 						<div class="avatar"><?php echo get_avatar( get_the_author_email(), '45' ); ?></div>
-						<div class="title"><span><?php  echo get_the_author()  ?></span></div>
+						<div class="title"><span style="color: #000B3C; font-size: large"><?php  echo get_the_author()  ?></span></div>
 					<div class="time">
 						<?php 
 							$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
@@ -52,20 +52,27 @@
 							$posted_on = sprintf(
 								/* translators: %s: post date. */
 								esc_html_x( '%s', 'post date', 'wp-bootstrap-4' ),
-								'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
+								'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark" style="text-transform: lowercase;">' . $time_string . '</a>'
 							);
 						?>       
 						<div class="date"><i class="icon-clock"></i> <?php echo $posted_on ?></div>
 					</div>
 					</div>
 					<div class="d-flex justify-content-end">
-
 							<ul class="social-network social-circle">
 								<!-- <li><a href="#" class="icoRss" title="Rss"><i class="fa fa-rss"></i></a></li> -->
-								<li><a href="<?php $facebook ?>" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
-								<li><a href="<?php $twitter ?>" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a></li>
-								<li><a href="<?php $instagram ?>" class="icoGoogle" title="Instagram"><i class="fa fa-instagram"></i></a></li>
-								<li><a href="<?php $linkedin ?>" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+								<?php
+
+									$twitter = get_the_author_meta( 'twitter', $post->post_author );
+									$facebook = get_the_author_meta( 'facebook', $post->post_author );
+									$instagram = get_the_author_meta( 'instagram', $post->post_author );
+									$linkedin = get_the_author_meta( 'linkedin', $post->post_author );
+
+									echo '<li><a href="' . $facebook . '" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>';
+									echo '<li><a href="' . $twitter . '" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a></li>';
+									echo '<li><a href="' . $instagram . '" class="icoGoogle" title="Instagram"><i class="fa fa-instagram"></i></a></li>';
+									echo '<li><a href="' . $linkedin . '" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>';
+								?>
 							</ul>
 							
 					</div>
@@ -113,15 +120,15 @@
 				<div class="text-center m-t-30 mb-5" style="padding: 50px 0px; border-top: 1px solid #adad85; border-bottom: 1px solid #adad85">
 					<h4 class="mb-5" style="color: #000B3C">Veja mais sobre o autor</h4>
 					<img src="<?php echo get_avatar_url( get_the_author_email() ); ?>" class="rounded-circle mb-2" width="150">
-					<h4 class="text-info card-title m-t-10"><?php  echo get_the_author()  ?></h4>
+					<h4 class="card-title m-t-10" style="color: #5CB5FE"><a <?php echo 'href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '"' ?>><?php  echo get_the_author()  ?></a></h4>
 					<h6 class="card-subtitle mt-3"><?php echo get_the_author_meta('description') ?></h6>
 				</div>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-12">
-				<div class="text-center m-t-30 mb-5">
-					<h4 class="mb-5" style="color: #000B3C">Artigos relacionados</h4>
+				<div class="m-t-30 mb-5">
+					<h4 class="mb-5 text-center" style="color: #000B3C">Artigos relacionados</h4>
 					<div class="row">
 
 					<?php
@@ -135,7 +142,7 @@
 							?> 
 							<div class="col-md-4">
 								
-								<article  id="post-<?php the_ID(); ?>" <?php post_class( 'post-card card my-3' ); ?> style="">
+								<article id="post-<?php the_ID(); ?>" onclick="location.href='<?php echo get_permalink() ?>';" <?php post_class( 'post-card card my-3' ); ?> style="cursor: pointer;">
 
 									<?php
 										// Must be inside a loop.
@@ -152,12 +159,7 @@
 									<div class="">
 									<div class="post-text">
 										<?php
-										if ( is_singular() ) :
-											the_title( '<h1 class="post-title">', '</h1>' );
-										else :
 											the_title( '<h5 class="post-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark" >', '</a></h5>' );
-										endif;
-
 										?>
 									<!-- <p class="post-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam porta libero tincidunt mattis rhoncus. Interdum et malesuada fames ac ante ipsum primis in faucibus.</p> -->
 									</div>
@@ -190,4 +192,4 @@
 			</div>
 		</div>
 	<?php endif; ?>
-</div>
+</div>		

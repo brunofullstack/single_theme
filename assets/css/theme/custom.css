@@ -28,7 +28,11 @@ h1, h2, h3, h4, h5, h6 {
   width: 100%;
   height: 170px;
   object-fit: cover;
-  opacity: 0.8;
+  opacity: 0.8; /* Standard compliant browsers */
+   -moz-opacity: 0.8; /* Firefox and Mozilla browsers */
+   -webkit-opacity: 0.8; /* WebKit browser e.g. Safari */
+   filter: alpha(opacity=80); /* For IE8 and earlier */
+
 }
 .post-card .avatar {
   opacity: 0.8;
@@ -121,6 +125,7 @@ h1, h2, h3, h4, h5, h6 {
 .post-title a{
   color: #000B3C;
   font-family: "CenturyGothicBold";
+  word-break: break-word;
 }
 .entry-date {
   color: #000B3C;
@@ -259,9 +264,9 @@ h1, h2, h3, h4, h5, h6 {
 /*footer*/
 
 .social_footer_ul { display:table; margin:15px auto 0 auto; list-style-type:none;  }
-.social_footer_ul li { padding-left:20px; padding-top:10px; float:left; }
+.social_footer_ul li { padding-right:20px; padding-top:10px; float:right; }
 .social_footer_ul li a { background-color: #fff; color:#000b3c; border:1px solid #CCC; padding:8px; border-radius:50%; font-size: 20px}
-.social_footer_ul li i {  width:30px; height:30px; text-align:center;}
+.social_footer_ul li i {  width:25px; height:25px; text-align:center;}
 
 .main-footer h5 {
   font-family: 'CenturyGothicBold';
@@ -277,7 +282,8 @@ h1, h2, h3, h4, h5, h6 {
 	line-height:100%;
 	letter-spacing:0.5px;
 	font-weight:600;
-} 
+}
+
 #homeBanner p {
 	font-size:18px;
 	margin-bottom:15px;
@@ -538,4 +544,11 @@ a.socialIcon:hover, .socialHoverClass {
 	-o-transition: all 0.8s;
 	-ms-transition: all 0.8s;
 	transition: all 0.8s;
+}
+.navbar {
+  margin-bottom: 0px;
+}
+
+nav.navigation, nav#nav-below {
+  display: none
 }

@@ -89,7 +89,17 @@
 
 
   <?php wp_footer(); ?>
+<style>
+/* Hidden Screen Classes */
 
+@media (max-width: 767px) {                  
+  .hidden-sm {
+     display: none !important;
+  }
+  .single-post-banner {
+    margin-top: 50px;
+  }
+}
+</style>
 </body>
-<link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/assets/css/theme/custom.css" type="text/css" media="screen" />
 </html>
