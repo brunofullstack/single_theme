@@ -24,7 +24,6 @@
                 
 				<?php
 				if ( is_singular() ) :
-					echo '<h1 class="post-title">Dicas da Provi: </h1>';
 					the_title( '<h2 class="post-title">', '</h2>' );
 				else :
 					the_title( '<h3 class="post-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark" class="text-dark">', '</a></h3>' );
@@ -63,13 +62,11 @@
 								<!-- <li><a href="#" class="icoRss" title="Rss"><i class="fa fa-rss"></i></a></li> -->
 								<?php
 
-									$twitter = get_the_author_meta( 'twitter', $post->post_author );
-									$facebook = get_the_author_meta( 'facebook', $post->post_author );
-									$instagram = get_the_author_meta( 'instagram', $post->post_author );
-									$linkedin = get_the_author_meta( 'linkedin', $post->post_author );
+									$facebook = 'https://www.facebook.com/SejaProvi/';
+									$instagram = 'https://www.instagram/sejaprovi';
+									$linkedin = 'https://www.linkedin/company/provi';
 
 									echo '<li><a href="' . $facebook . '" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>';
-									echo '<li><a href="' . $twitter . '" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a></li>';
 									echo '<li><a href="' . $instagram . '" class="icoGoogle" title="Instagram"><i class="fa fa-instagram"></i></a></li>';
 									echo '<li><a href="' . $linkedin . '" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>';
 								?>
